@@ -43,11 +43,28 @@ public class Model {
     public void checkNumberInList(int a) {
         alreadyUsedNumber.contains(a);
     }
-    public boolean checkNumber(int a) {
-        return a==randNumber;
+    public boolean checkNumber(int a) { //переделать функцию под больше меньше
+        return a == randNumber;
+    }
+    public boolean checkBigger(int a){
+        return a > randNumber;
+    }
+    public boolean checkLesser(int a){
+        return a < randNumber;
     }
 
     public ArrayList<Integer> getAlreadyUsedNumber() {
         return alreadyUsedNumber;
     }
+    public void changeBounds(int a){
+        if(checkLesser(a)){
+            setMinRand(a);
+        }
+        if(checkBigger(a)){
+            setMaxRand(a);
+
+        }
+
+    }
 }
+

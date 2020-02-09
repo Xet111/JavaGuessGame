@@ -19,6 +19,7 @@ public class Controller {
 
         while(!(model.checkNumber(inputNumberWithScanner(sc)))) {
             view.printMessage(View.USER_ERROR);
+
         }
         view.printMessage(View.USER_GUESSED);
         view.printMessage(View.ARRAY,model.getAlreadyUsedNumber());
@@ -30,7 +31,7 @@ public class Controller {
 
 
 
-    public int inputNumberWithScanner(Scanner sc) {
+    private int inputNumberWithScanner(Scanner sc) {
         view.printMessage(View.RANGE_OF_NUMBER);
         view.printMessage(View.ARRAY,model.getAlreadyUsedNumber());
         view.printMessage(View.USER_GUESS_NUMBER);
@@ -41,8 +42,10 @@ public class Controller {
 
 
         while(!(checkBounds(s) && checkArray(s))) {
-            model.putInList(s);
-
+            if((checkBounds(s) && checkArray(s))) {
+                model.putInList(s);
+                model.changeBounds(s);
+            }
            view.printMessage(View.OUT_OF_BOUND + View.USER_GUESS_NUMBER);
 
 
@@ -50,17 +53,18 @@ public class Controller {
 
 
         }
-
-        model.putInList(s);
-
+        if((checkBounds(s) && checkArray(s))) {
+            model.putInList(s);
+            model.changeBounds(s);
+        }
 
         return s;
     }
 
-    public boolean checkBounds(int a) {
+    private boolean checkBounds(int a) {
         return (a >= model.getMinRand()) && (a <= model.getMaxRand());
     }
-    public boolean checkArray(int a) {
+    private boolean checkArray(int a) {
 
         return !model.getAlreadyUsedNumber().contains(a);
     }
