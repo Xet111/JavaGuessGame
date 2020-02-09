@@ -56,6 +56,12 @@ public class Controller {
         if((checkBounds(s) && checkArray(s))) {
             model.putInList(s);
             model.changeBounds(s);
+            if(model.checkBigger(s)){
+                view.printMessage(View.NUMBER_IS_BIGGER);
+            }
+            if(model.checkLesser(s)){
+                view.printMessage(View.NUMBER_IS_LESSER);
+            }
         }
 
         return s;

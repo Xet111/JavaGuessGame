@@ -43,7 +43,7 @@ public class Model {
     public void checkNumberInList(int a) {
         alreadyUsedNumber.contains(a);
     }
-    public boolean checkNumber(int a) { //переделать функцию под больше меньше
+    public boolean checkNumber(int a) {
         return a == randNumber;
     }
     public boolean checkBigger(int a){
