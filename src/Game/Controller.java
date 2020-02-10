@@ -32,7 +32,7 @@ public class Controller {
 
 
     private int inputNumberWithScanner(Scanner sc) {
-        view.printMessage(View.RANGE_OF_NUMBER);
+        view.printMessage(View.RANGE_OF_NUMBER+View.LEFT_BRACKET+ model.getMinRand()+" "+model.getMaxRand()+View.RIGHT_BRACKET);
         view.printMessage(View.ARRAY,model.getAlreadyUsedNumber());
         view.printMessage(View.USER_GUESS_NUMBER);
 

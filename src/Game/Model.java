@@ -11,15 +11,20 @@ public class Model {
    private ArrayList<Integer> alreadyUsedNumber;
 
     Model() {
-        minRand = 0;
-        maxRand = 100;
+        minRand = 1;
+        maxRand = 99;
         randNumber = generateNumber();
         alreadyUsedNumber = new ArrayList<Integer>();
 
     }
 
     public int generateNumber() {
-         return (int)(minRand + Math.random()*maxRand);
+        if(Math.round(Math.random())==1) {
+            return (int) (minRand + Math.floor(Math.random()*10) * maxRand)/10;
+        }
+        else{
+            return (int) (minRand + Math.ceil(Math.random()*10) * maxRand)/10;
+        }
     }
     public int getRandNumber() {
         return randNumber;
